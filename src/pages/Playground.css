@@ -1,0 +1,32 @@
+.playground-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 20px; /* Small indentation on top */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+  background-color: #f8f8f8; /* Ensure root has background */
+}
+
+.playground-main {
+  flex: 1; /* Take up remaining vertical space */
+  display: flex;
+  min-height: 0; /* Allow content to shrink */
+  width: 90%; /* Take up 90% of screen width */
+  margin: 0 auto; /* Center the container */
+  padding: 0; /* Remove padding from here */
+  gap: 20px; /* Space between columns */
+  background-color: #fff; /* White background for the main content area */
+  border-radius: 12px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+  overflow: hidden; /* Hide overflow from rounded corners */
+}
+
+.playground-chat-container {
+  flex: 1; /* Chat takes remaining horizontal space */
+  display: flex;
+  /* No padding/margin here, let the Chat component handle its internal layout */
+  padding: 0;
+  margin: 0;
+}
+
+/* Styles for Sidebar and MemoriesPanel handled in their own CSS files */ 

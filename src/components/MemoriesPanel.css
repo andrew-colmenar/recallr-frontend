@@ -1,0 +1,63 @@
+.memories-panel-container {
+  width: 300px;
+  background: #fff; /* Already white, but keep */
+  /* border-left: 1px solid #e5e7eb; /* Handled by the gap in the main container */
+  padding: 24px 16px; /* Keep padding */
+  display: flex;
+  flex-direction: column;
+  /* Remove radius/shadow from here, handled by main container */
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.panel-header h4 {
+  font-size: 1.1rem;
+  color: #222;
+  margin: 0;
+}
+
+.panel-actions span {
+  font-size: 1.1rem;
+  margin-left: 12px;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.panel-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.panel-content p {
+  margin: 4px 0;
+}
+
+.refresh-btn {
+  background: #1f2937;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #374151;
+} 

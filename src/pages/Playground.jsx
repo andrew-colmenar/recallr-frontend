@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
-import ChatSidebar from './components/ChatSidebar';
-import ChatWindow from './components/ChatWindow';
-import MemoryPanel from './components/MemoryPanel';
-import './App.css';
+import Navbar from '../components/Navbar';
+import Chat from '../components/Chat';
+import Sidebar from '../components/Sidebar';
+import MemoriesPanel from '../components/MemoriesPanel';
+import './Playground.css';
 
 const defaultChats = [
   {
     id: 1,
     name: 'Chat 1',
     messages: [
-      { sender: 'assistant', text: 'Hello! How can I help you today?' },
-      { sender: 'user', text: 'Tell me about Recallr AI.' },
+      { sender: 'assistant', text: 'What can I help you with?' }
     ]
   },
   {
@@ -23,7 +22,7 @@ const defaultChats = [
   }
 ];
 
-function App() {
+const Playground = () => {
   const [chats, setChats] = useState(defaultChats);
   const [selectedChatId, setSelectedChatId] = useState(chats[0].id);
 
@@ -52,23 +51,25 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <div className="playground-root">
       <Navbar />
-      <div className="main-content">
-        <ChatSidebar
+      <div className="playground-main">
+        <Sidebar
           chats={chats}
           selectedChatId={selectedChatId}
           onSelectChat={setSelectedChatId}
           onNewChat={handleNewChat}
         />
-        <ChatWindow
-          messages={selectedChat ? selectedChat.messages : []}
-          onSendMessage={handleSendMessage}
-        />
-        <MemoryPanel />
+        <div className="playground-chat-container">
+          <Chat
+            messages={selectedChat ? selectedChat.messages : []}
+            onSendMessage={handleSendMessage}
+          />
+        </div>
+        <MemoriesPanel />
       </div>
     </div>
   );
-}
+};
 
-export default App;
+export default Playground; 
