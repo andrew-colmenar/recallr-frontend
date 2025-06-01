@@ -14,13 +14,7 @@ const defaultChats = [
       { sender: 'assistant', text: 'What can I help you with?' }
     ]
   },
-  {
-    id: 2,
-    name: 'Chat 2',
-    messages: [
-      { sender: 'assistant', text: 'Welcome to Chat 2!' }
-    ]
-  }
+  
 ];
 
 const Chat = () => {
