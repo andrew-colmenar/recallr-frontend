@@ -6,17 +6,39 @@
   width: 70%;
   border-right: 1px solid #e5e7eb;
   position: relative;
+  overflow: hidden; /* Prevent container from scrolling */
 }
 
 .chat-messages {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: auto; /* Enable vertical scrolling */
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding-bottom: 180px;
-  height: calc(100vh - 200px); /* Adjust this value to control message area height */
+  height: calc(100vh - 200px);
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #cbd5e1 #f1f5f9; /* For Firefox */
+}
+
+/* Webkit scrollbar styles */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 /* Add styles for the input area to stay at bottom */
