@@ -13,13 +13,6 @@ const defaultChats = [
       { sender: 'assistant', text: 'Hello! How can I help you today?' },
       { sender: 'user', text: 'Tell me about Recallr AI.' },
     ]
-  },
-  {
-    id: 2,
-    name: 'Chat 2',
-    messages: [
-      { sender: 'assistant', text: 'Welcome to Chat 2!' }
-    ]
   }
 ];
 
