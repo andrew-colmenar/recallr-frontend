@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
-import Navbar from './components/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
 import ChatSidebar from './components/ChatSidebar';
 import ChatWindow from './components/ChatWindow';
 import MemoryPanel from './components/MemoryPanel';
+import Dashboard from './components/dashboard/Dashboard';
 import './App.css';
 
-const defaultChats = [
-  {
-    id: 1,
-    name: 'Chat 1',
-    messages: [
-      { sender: 'assistant', text: 'Hello! How can I help you today?' },
-      { sender: 'user', text: 'Tell me about Recallr AI.' },
-    ]
-  }
-];
-
-function App() {
+// This component will contain the layout for the Playground
+const PlaygroundLayout = () => {
+  const defaultChats = [
+    {
+      id: 1,
+      name: 'Chat 1',
+      messages: [
+        { sender: 'assistant', text: 'Hello! How can I help you today?' },
+        { sender: 'user', text: 'Tell me about Recallr AI.' },
+      ]
+    }
+  ];
   const [chats, setChats] = useState(defaultChats);
   const [selectedChatId, setSelectedChatId] = useState(chats[0].id);
 
@@ -45,22 +47,33 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <Navbar />
-      <div className="main-content">
-        <ChatSidebar
-          chats={chats}
-          selectedChatId={selectedChatId}
-          onSelectChat={setSelectedChatId}
-          onNewChat={handleNewChat}
-        />
-        <ChatWindow
-          messages={selectedChat ? selectedChat.messages : []}
-          onSendMessage={handleSendMessage}
-        />
-        <MemoryPanel />
-      </div>
+    <div className="main-content">
+      <ChatSidebar
+        chats={chats}
+        selectedChatId={selectedChatId}
+        onSelectChat={setSelectedChatId}
+        onNewChat={handleNewChat}
+      />
+      <ChatWindow
+        messages={selectedChat ? selectedChat.messages : []}
+        onSendMessage={handleSendMessage}
+      />
+      <MemoryPanel />
     </div>
+  );
+};
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="app-container">
+        <Navbar />
+        <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<PlaygroundLayout />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
