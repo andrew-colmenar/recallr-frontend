@@ -1,6 +1,6 @@
 .memory-panel-container {
   width: 300px; /* Adjust width as needed */
-  padding: 15px;
+  padding: 15px 0; /* Reduce horizontal padding */
   border-left: 1px solid #e5e7eb;
   background-color: #f9fafb; /* Light background */
   display: flex;
@@ -13,6 +13,10 @@
 .memory-panel-container h4 {
   margin-top: 0;
   margin-bottom: 15px;
+  padding: 0 15px; /* Add horizontal padding */
+  width: 100%; /* Ensure header takes full width for padding */
+  box-sizing: border-box;
+  text-align: center; /* Center the header text */
 }
 
 .refresh-button {
@@ -27,4 +31,5 @@
 
 .memory-panel-container p {
   text-align: center; /* Center text */
+  padding: 0 15px; /* Add horizontal padding to text */
 } 

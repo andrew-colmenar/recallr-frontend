@@ -1,9 +1,9 @@
-.navbar {
+.navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  height: 64px; /* Increased height slightly */
+  padding: 10px 24px; /* Keep consistent horizontal padding, adjust vertical */
+  height: 60px; /* Increased height slightly */
   background: #fafbfc;
   border-bottom: 1px solid #e5e7eb;
   font-family: 'Inter', sans-serif;
@@ -12,11 +12,11 @@
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px; /* Space between logo and text */
 }
 
-.logo-img {
-  height: 36px; /* Adjust based on logo size */
+.logo {
+  height: 20px; /* Adjust based on logo size */
   margin-right: 8px;
 }
 
@@ -40,7 +40,7 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 15px; /* Space between links */
 }
 
 .navbar-right a {
@@ -67,19 +67,4 @@
   font-size: 1.3rem;
   margin-left: 8px;
   color: #4b5563;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #e0f2fe; /* Light blue background */
-  border-bottom: 1px solid #bfdbfe;
-}
-
-.navbar-container a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #0284c7; /* Blue text */
 } 
