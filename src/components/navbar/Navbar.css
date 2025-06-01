@@ -13,11 +13,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-}
+} 
 
 .logo {
-  height: 20px;
-  margin-right: 8px;
+  height: 40px; /* Adjust this value to change logo size */
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-left span {

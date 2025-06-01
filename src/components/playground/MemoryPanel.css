@@ -1,5 +1,6 @@
 .memory-panel-container {
-  width: 300px; /* Adjust width as needed */
+  width: 15%; /* Changed to percentage-based width */
+  min-width: 200px; /* Minimum width to ensure usability */
   padding: 15px 0; /* Reduce horizontal padding */
   border-left: 1px solid #e5e7eb;
   background-color: #f9fafb; /* Light background */

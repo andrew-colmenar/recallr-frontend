@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import MessageBubble from './MessageBubble';
 import './ChatWindow.css';
 
 // Receive messages and onSendMessage from props
 const ChatWindow = ({ messages, onSendMessage }) => {
   const [input, setInput] = useState('');
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
@@ -29,7 +34,7 @@ const ChatWindow = ({ messages, onSendMessage }) => {
 
   return (
     <div className="chat-window-container">
-      <div className="chat-messages">
+      <div className="chat-messages" ref={messagesEndRef}>
         {/* Render messages received from props */}
         {messages.map((msg, index) => (
           <MessageBubble key={index} sender={msg.sender} text={msg.text} />

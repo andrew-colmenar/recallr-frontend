@@ -1,7 +1,8 @@
 .chat-sidebar-container {
-  width: 250px; /* Adjust width as needed */
+  width: 15%; /* Changed to percentage-based width */
+  min-width: 200px; /* Minimum width to ensure usability */
   padding: 15px;
-  border-right: 0px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
   background-color: #f9fafb; /* Light background */
   display: flex;
   flex-direction: column; /* Ensure column layout for header and list */
