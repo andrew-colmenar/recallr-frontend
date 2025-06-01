@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
-import ChatSidebar from './components/ChatSidebar';
-import ChatWindow from './components/ChatWindow';
-import MemoryPanel from './components/MemoryPanel';
+import ChatSidebar from './components/playground/ChatSidebar';
+import ChatWindow from './components/playground/ChatWindow';
+import MemoryPanel from './components/playground/MemoryPanel';
 import Dashboard from './components/dashboard/Dashboard';
 import './App.css';
 
@@ -14,9 +14,7 @@ const PlaygroundLayout = () => {
       id: 1,
       name: 'Chat 1',
       messages: [
-        { sender: 'assistant', text: 'Hello! How can I help you today?' },
-        { sender: 'user', text: 'Tell me about Recallr AI.' },
-      ]
+        { sender: 'assistant', text: 'Hello! How can I help you today?' }      ]
     }
   ];
   const [chats, setChats] = useState(defaultChats);

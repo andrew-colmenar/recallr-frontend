@@ -6,8 +6,8 @@
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
+  height: 3.5em;
+  padding: 0em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -54,7 +54,7 @@
 .main-content {
   flex: 1;
   display: flex;
-  width: 95%;
+  width: 98%;
   max-width: none;
   margin: 0 auto;
   padding: 0;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MessageBubble from '../MessageBubble';
+import MessageBubble from './MessageBubble';
 import './ChatWindow.css';
 
 // Receive messages and onSendMessage from props
