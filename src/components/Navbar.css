@@ -4,8 +4,8 @@
   align-items: center;
   padding: 10px 24px; /* Keep consistent horizontal padding, adjust vertical */
   height: 60px; /* Increased height slightly */
-  background: #fafbfc;
-  border-bottom: 1px solid #e5e7eb;
+  background: transparent;
+  border-bottom: none;
   font-family: 'Inter', sans-serif;
 }
 
