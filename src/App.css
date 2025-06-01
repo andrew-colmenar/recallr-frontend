@@ -44,20 +44,20 @@
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Use min-height to ensure background covers even short content */
-  background-color: #f0f0f0; /* Lighter grey background */
-  padding-top: 20px;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding-top: 10px;
   box-sizing: border-box;
-  width: 100%; /* Ensure container takes full width */
+  width: 100%;
 }
 
 .main-content {
   flex: 1;
   display: flex;
-  width: 95%; /* Widen the main content area */
-  max-width: 1400px; /* Increase max width */
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
   gap: 20px;
   background-color: #fff;
   border-radius: 12px;
@@ -74,8 +74,8 @@
 .chat-window-container {
   flex-grow: 1;
   height: 100%;
-  border: none; /* Remove border */
-  display: flex; /* Ensure flex for internal chat window layout */
+  border: none;
+  display: flex;
   flex-direction: column;
 }
 
@@ -86,8 +86,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    /* Ensure text color is not opaque */
-    color: #333; /* Darken text color */
+    color: #333;
 }
 
 .chat-input {
@@ -97,7 +96,7 @@
   border-radius: 5px;
   margin-right: 10px;
   font-size: 1rem;
-  color: #333; /* Darken input text color */
+  color: #333;
 }
 
 .chat-sidebar-container {
