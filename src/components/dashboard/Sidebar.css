@@ -30,6 +30,15 @@
   font-size: 1.25rem;
   transition: all 150ms ease-in-out;
   background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  color: inherit;
 }
 
 .nav-button:hover {
