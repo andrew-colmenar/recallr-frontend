@@ -1,14 +1,15 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import './DashboardLayout.css';
 
 const DashboardLayout: React.FC = () => {
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="dashboard-layout">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto p-8">
+      <div className="dashboard-content">
         <Outlet />
-      </main>
+      </div>
     </div>
   );
 };

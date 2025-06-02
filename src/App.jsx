@@ -6,6 +6,7 @@ import ChatWindow from './components/playground/ChatWindow';
 import MemoryPanel from './components/playground/MemoryPanel';
 import DashboardLayout from './components/dashboard/DashboardLayout';
 import DashboardHome from './pages/DashboardHome';
+import ApiKeysPage from './pages/ApiKeysPage';
 import './styles/variables.css';
 import './App.css';
 
@@ -75,7 +76,7 @@ function App() {
             <Route path="memories" element={<div>Memories Page</div>} />
             <Route path="graph-memory" element={<div>Graph Memory Page</div>} />
             <Route path="users" element={<div>Users Page</div>} />
-            <Route path="api-keys" element={<div>API Keys Page</div>} />
+            <Route path="api-keys" element={<ApiKeysPage />} />
             <Route path="webhooks" element={<div>Webhooks Page</div>} />
             <Route path="exports" element={<div>Memory Exports Page</div>} />
             <Route path="settings" element={<div>Settings Page</div>} />
