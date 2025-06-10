@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import ChatSidebar from './components/playground/ChatSidebar';
 import ChatWindow from './components/playground/ChatWindow';
@@ -7,6 +7,10 @@ import MemoryPanel from './components/playground/MemoryPanel';
 import DashboardLayout from './components/dashboard/DashboardLayout';
 import DashboardHome from './pages/DashboardHome';
 import ApiKeysPage from './pages/ApiKeysPage';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import { ThemeProvider, createTheme } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
 import './styles/variables.css';
 import './App.css';
 
@@ -17,7 +21,8 @@ const PlaygroundLayout = () => {
       id: 1,
       name: 'Chat 1',
       messages: [
-        { sender: 'assistant', text: 'Hello! How can I help you today?' }      ]
+        { sender: 'assistant', text: 'Hello! How can I help you today?' }
+      ]
     }
   ];
   const [chats, setChats] = useState(defaultChats);
@@ -64,32 +69,57 @@ const PlaygroundLayout = () => {
   );
 };
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#1976d2',
+    },
+    background: {
+      default: '#f5f5f5',
+    },
+  },
+});
+
+function AppRoutes() {
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/signup' || location.pathname === '/login';
+  return (
+    <div className="app-container">
+      {!isAuthPage && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Navigate to="/signup" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardHome />} />
+          <Route path="requests" element={<div>Requests Page</div>} />
+          <Route path="memories" element={<div>Memories Page</div>} />
+          <Route path="graph-memory" element={<div>Graph Memory Page</div>} />
+          <Route path="users" element={<div>Users Page</div>} />
+          <Route path="api-keys" element={<ApiKeysPage />} />
+          <Route path="webhooks" element={<div>Webhooks Page</div>} />
+          <Route path="exports" element={<div>Memory Exports Page</div>} />
+          <Route path="settings" element={<div>Settings Page</div>} />
+          <Route path="usage" element={<div>Usage Page</div>} />
+          <Route path="subscriptions" element={<div>Subscriptions Page</div>} />
+          <Route path="forum" element={<div>Forum Page</div>} />
+          <Route path="status" element={<div>Status Page</div>} />
+          <Route path="support" element={<div>Help / Support Page</div>} />
+        </Route>
+        <Route path="/playground" element={<PlaygroundLayout />} />
+      </Routes>
+    </div>
+  );
+}
+
 function App() {
   return (
-    <BrowserRouter>
-      <div className="app-container">
-        <Navbar />
-        <Routes>
-          <Route path="/dashboard" element={<DashboardLayout />}>
-            <Route index element={<DashboardHome />} />
-            <Route path="requests" element={<div>Requests Page</div>} />
-            <Route path="memories" element={<div>Memories Page</div>} />
-            <Route path="graph-memory" element={<div>Graph Memory Page</div>} />
-            <Route path="users" element={<div>Users Page</div>} />
-            <Route path="api-keys" element={<ApiKeysPage />} />
-            <Route path="webhooks" element={<div>Webhooks Page</div>} />
-            <Route path="exports" element={<div>Memory Exports Page</div>} />
-            <Route path="settings" element={<div>Settings Page</div>} />
-            <Route path="usage" element={<div>Usage Page</div>} />
-            <Route path="subscriptions" element={<div>Subscriptions Page</div>} />
-            <Route path="forum" element={<div>Forum Page</div>} />
-            <Route path="status" element={<div>Status Page</div>} />
-            <Route path="support" element={<div>Help / Support Page</div>} />
-          </Route>
-          <Route path="/" element={<PlaygroundLayout />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
